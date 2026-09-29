@@ -1,17 +1,15 @@
 ---
 name: ai-comic-drama
+description: Prepare shot manifests, text storyboard previews, cost estimates and review checklists for AI comic-drama production. Use for preproduction planning; this preview does not generate or assemble video.
 metadata:
-  version: 0.1.0
-  short-description: Manifest-first AI comic-drama production
-  author: 263311487-ux
-description: Plan, validate, produce, assemble, and quality-check AI comic-drama episodes from an approved script or storyboard manifest. Use for repeatable production, provider routing, shot repair, subtitles, technical delivery gates, and cost controls.
+  version: 0.1.1
 ---
-# AI Comic Drama Automation
+# AI Comic Drama — Planning Preview
 
-This skill turns an approved script and shot manifest into a reproducible episode package. It separates story decisions from generation execution and keeps paid/provider-specific actions behind an explicit adapter and budget gate.
+Read README.md for executable commands and current limitations. Develop an approved script into shots with purpose, visible action, camera, dialogue and end state. Preserve the user's genre, duration, language and audio preferences.
 
-Workflow: script -> manifest -> validate -> compliance -> previz -> assets -> audio -> keyframes -> video -> assemble -> frame QA -> technical QA -> delivery.
+Run scripts/validate_manifest.py on the example contract. Use scripts/previz.py for a text storyboard, scripts/estimate_cost.py for per-second cost estimates, and scripts/qa_report.py for an unreviewed checklist. These commands do not invoke providers.
 
-Run offline checks with scripts/validate_manifest.py, scripts/check_compliance.py, scripts/previz.py, scripts/estimate_cost.py, and scripts/qa_report.py. Read references/providers.md for adapters and references/release-checklist.md before publishing.
+Keyword checks cannot certify compliance. Unreviewed reports cannot certify content. Legacy narrative, technical and delivery scripts remain experimental and are not integrated with this example schema. Never describe this preview as an end-to-end generator or declare content publishable based on a successful command.
 
-Do not claim viral, cinematic, consistent, or publish-ready from API success alone. Do not submit paid generation without an estimate and explicit user approval. Never embed private names, account IDs, keys, or billing assumptions in reusable resources.
+Provider integration design is in references/providers.md; it is not an implemented adapter.

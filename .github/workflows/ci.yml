@@ -12,4 +12,4 @@ jobs:
       - run: python scripts/previz.py examples/episode.json --out /tmp/previz.html
       - run: python scripts/estimate_cost.py examples/episode.json --rate 0.35 --pass-rate 0.65 --versions 3
       - run: python scripts/qa_report.py --manifest examples/episode.json --out /tmp/qa.json
-      - run: python -m pytest -q
+      - run: python -m unittest discover -s tests -p 'test_*.py'

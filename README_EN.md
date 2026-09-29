@@ -1,19 +1,34 @@
-# AI Comic Drama Skill
+# AI Comic Drama — Preview
 
-Manifest-first automation for repeatable AI comic-drama production: validate a shot list, estimate cost, preview continuity, route to a provider, assemble subtitles, run frame and technical QA, and produce a delivery manifest.
+An early Agent Skill for planning comic-drama production. **This release is a planning prototype, not an end-to-end video generator.**
 
-This is an Agent Skill, not a hosted video service. Story decisions, provider execution, and release evidence remain separate.
+## Available now
 
-## Quick start (offline)
+- Offline shot-manifest checks.
+- Text storyboard HTML (not a visual animatic).
+- Cost estimates using user-supplied per-second rates.
+- Unreviewed QA checklist creation (not automated video review).
 
-    python3 scripts/validate_manifest.py examples/episode.json
-    python3 scripts/check_compliance.py examples/episode.json
-    python3 scripts/previz.py examples/episode.json --out work/previz.html
-    python3 scripts/estimate_cost.py examples/episode.json --rate 0.35 --pass-rate 0.65 --versions 3
-    python3 scripts/qa_report.py --manifest examples/episode.json --out work/qa.json
+## Not yet integrated
 
-These commands do not call a paid provider.
+Video provider execution, resumable production, audio/subtitle assembly, and validated end-to-end delivery gates. Legacy gate scripts are experimental and use a different manifest contract. Do not use them to certify release readiness.
+
+## Offline quick start
+
+```sh
+python3 scripts/validate_manifest.py examples/episode.json
+python3 scripts/previz.py examples/episode.json --out work/previz.html
+python3 scripts/estimate_cost.py examples/episode.json --rate 0.35 --pass-rate 0.65 --versions 3
+python3 scripts/qa_report.py --manifest examples/episode.json --out work/qa.json
+python3 -m unittest discover -s tests
+```
+
+`--rate` means currency units per generated second. Estimates exclude image, audio, tax and provider-specific charges. Keyword scanning does not establish platform compliance.
+
+## Installation
+
+Copy the complete repository into your agent's skill directory. Entry point: `SKILL.md`. Python 3.11+; the offline commands use the standard library.
 
 ## License
 
-Apache-2.0.
+Apache-2.0; see LICENSE. No third-party director skill or proprietary media is bundled.
