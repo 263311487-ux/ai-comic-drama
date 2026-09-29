@@ -16,6 +16,19 @@ def run_manifest(manifest, provider: Provider, state_path, *, dry_run=False):
         sid = shot["id"]
         existing = state["shots"].get(sid)
         if existing and existing.get("status") == "succeeded": continue
+        if existing and existing.get("status") in {"submitted", "running"}:
+            job_id=(existing.get("job") or {}).get("job_id")
+            if job_id and hasattr(provider,"poll"):
+                job=provider.poll(job_id)
+                existing["status"]=job.status; existing["job"]=json_job(job)
+                state["events"].append({"event":"shot_polled","shot_id":sid,"job":json_job(job)})
+                if job.status=="succeeded" and hasattr(provider,"download"):
+                    out=Path(state.get("output_dir","work/shots"))/f"{sid}.mp4"
+                    artifact=provider.download(job_id,out); existing["artifact"]=artifact
+                    if artifact.get("status")!="succeeded": existing["status"]="failed"
+                path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(state,ensure_ascii=False,indent=2))
+                if existing["status"] in {"submitted","running"}: continue
+                if existing["status"]=="succeeded": continue
         attempts = int(existing.get("attempts", 0)) if existing else 0
         if attempts >= max_shot_attempts: state["shots"][sid] = {"status":"blocked","attempts":attempts,"reason":"shot retry budget exhausted"}; continue
         if max_attempts and state["attempts"] >= max_attempts: raise BudgetExceeded("episode attempt budget exhausted")
@@ -24,5 +37,6 @@ def run_manifest(manifest, provider: Provider, state_path, *, dry_run=False):
         state["attempts"] += 1; state["shots"][sid] = {"status":job.status,"attempts":attempts+1,"job":json_job(job)}
         state["events"].append({"event":"shot_submitted","run_id":run_id,"shot_id":sid,"job":json_job(job)})
         path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(state, ensure_ascii=False, indent=2))
-    state["status"] = "succeeded" if all(x.get("status")=="succeeded" for x in state["shots"].values()) else "needs-review"
+    statuses=[x.get("status") for x in state["shots"].values()]
+    state["status"] = "succeeded" if statuses and all(x=="succeeded" for x in statuses) else ("running" if any(x in {"submitted","running"} for x in statuses) else "needs-review")
     path.write_text(json.dumps(state, ensure_ascii=False, indent=2)); return state
