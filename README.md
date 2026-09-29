@@ -17,6 +17,14 @@ The mock provider exercises resumable state, shot-level attempts, and episode bu
 python3 scripts/run_mock.py examples/episode.json --state work/run_state.json
 ```
 
+## Seedance plan (explicit opt-in)
+
+The adapter can inspect capabilities and construct a command without submitting. `--execute` is required for network generation; never use it without a provider budget and user approval.
+
+```sh
+python3 scripts/seedance_plan.py examples/episode.json --shot S01
+```
+
 ## Not yet integrated
 
 Video provider execution, resumable production, audio/subtitle assembly, and validated end-to-end delivery gates. Legacy gate scripts are experimental and use a different manifest contract. Do not use them to certify release readiness.

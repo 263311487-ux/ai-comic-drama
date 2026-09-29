@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+Added an explicit Seedance CLI adapter and network-free command planning. Submission remains opt-in.
+
 ## 0.2.0
 
 Added a dependency-free MockProvider, resumable shot runner, per-shot and episode budget gates, and provider contract implementation.
