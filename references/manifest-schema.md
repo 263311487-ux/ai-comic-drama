@@ -1,3 +1,50 @@
-# Manifest schema 0.1
+# manifest 分镜清单 schema
 
-Required top-level fields: schema_version, episode_id, title, ratio, delivery, provider, budget, shots. Each shot requires id, duration, purpose, action, camera, and end_state. The validator checks structure and references; it does not judge story quality.
+一集一个 JSON。字段来自已跑通的 `两界山海/仙门团宠` 两套写法，二者都支持。
+
+## 顶层
+```json
+{
+  "title": "片名",
+  "logline": "一句话钩子",
+  "style_lock": "统一画风锚定句（全片复用，不得改动）",
+  // 兼容别名：老项目可能用 "style"，脚本二者都读
+  "scenes": { "scn_rain": "场景描述" },
+  "shots": [ ... ]
+}
+```
+
+## 每镜字段（`shots[]`）
+- `id`：`S01` 这类稳定编号，生成物用它命名。
+- `dur` / `duration`：4–15 秒（爆款基准：每镜 3–5s 单动作；对白 4–6s，动作/转场 8–12s，大场面 ≤30s，拿不准用 `-1`）。
+- `speaker` / `voice`：说话人与音色描述；无对白可省。
+- `text`：对白原文；无对白可省。
+- `img`：该镜「画面」（静态构图：谁在什么环境做什么，供 Seedream 出关键帧）。
+- `motion`：该镜「动作 + 运镜」，**单镜只写一个动作**，运镜写具体（`缓慢推近`/`横向跟拍`/`低角度仰拍`），不写“大片感/震撼”。
+- `sfx`（可选）：该镜「音效分层」描述，如“兵器金属碰撞声 + 妖气低频轰鸣 + 风声，BGM 渐弱”；与 `ambient` 分开，不写“震撼音效”。
+- `ambient`：环境底噪描述（风声/雨声/人群声等；“无BGM”默认规则在生成脚本里）。
+- `scene`：引用顶层 `scenes` 的键，作为场景参考图（见下「场景写法」）。
+- `roles`：出场角色数组，用于锁角色参考图。`img` 相对 `refs/` 目录，写裸文件名即可（如 `linzhao_front.png`），也兼容带 `refs/` 前缀；`desc` 是锁脸描述原文。
+- `audio`（可选）：口型参考音频，相对集目录路径（如 `制作成果/audio/S01.wav`）；有就喂 `-a` 驱动口型，比纯 `--audio-gen` 更准。
+
+## 场景写法（一场一冲突）
+- `scenes` 的每个键 = 一场戏的「单一时间 + 单一地点 + 一个核心冲突」，不夹带别的时空。
+- 每个场景描述写「基准环境 + 色调 + 景深机位」，例如“长安城楼夜，冷青色调，远景全貌/中景城头/近景门洞三档景深”。
+- 场景资产与角色分开建、跨集跨季复用；新季只加新妖/新法器/新灯光，不重描述整套环境。
+
+## 推荐最简可跑结构
+```json
+{
+  "title": "示例",
+  "style_lock": "国漫3D写实，统一色调，同一渲染引擎质感",
+  "shots": [
+    {"id":"S01","dur":9,"speaker":"旁白","voice":"冷静沉稳女声","text":"开场台词","ambient":"山风","sfx":"风声环境 + 战鼓低频","img":"关键帧画面描述（静态构图）","motion":"镜头从远景缓慢推近（单动作）"}
+  ]
+}
+```
+
+## 生成物命名
+- 关键帧：`制作成果/images/{id}.png`
+- 分镜：`制作成果/video/{id}.mov`
+- 提示词：`制作成果/prompts/{id}.txt`
+- 成片：`{title}_EP{NN}.mp4`
