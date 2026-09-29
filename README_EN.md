@@ -63,3 +63,5 @@ Copy the complete repository into your agent's skill directory. Entry point: `SK
 ## License
 
 Apache-2.0; see LICENSE. No third-party director skill or proprietary media is bundled.
+
+Delivery status is intentionally staged: technical PASS does not equal content approval or publish approval.

@@ -20,12 +20,14 @@ def main():
     content_qa = qa.parent / "qa_result.json"
     if not content_qa.exists() or json.loads(content_qa.read_text(encoding="utf-8")).get("status") != "PASS":
         raise SystemExit("内容审片未通过或缺失，禁止生成交付清单")
+    if json.loads(content_qa.read_text(encoding="utf-8")).get("publish_approval") is not True:
+        raise SystemExit("缺少人工发布批准；只能标记 TECHNICAL_READY")
     cfg = json.loads(man.read_text(encoding="utf-8"))
     srt = video.parent / "制作成果" / "subs" / f"{cfg.get('title','episode')}_EP{cfg.get('episode','01')}.srt"
     files = [{"path": str(video), "sha256": sha(video)}]
     if not srt.exists(): raise SystemExit("字幕文件缺失，禁止生成交付清单")
     files.append({"path": str(srt), "sha256": sha(srt)})
-    result = {"status": "READY_FOR_PUBLISH", "title": cfg.get("title"), "episode": cfg.get("episode", "01"), "manifest": str(man), "created_at": int(time.time()), "files": files, "quality_gates": {"technical": "PASS", "content": "PASS", "compliance": "PASS"}}
+    result = {"status": "READY_FOR_PUBLISH", "title": cfg.get("title"), "episode": cfg.get("episode", "01"), "manifest": str(man), "created_at": int(time.time()), "files": files, "quality_gates": {"technical": "PASS", "content": "PASS", "compliance": "PASS", "human_publish_approval": "PASS"}}
     out = Path(args.out); out = out if out.is_absolute() else video.parent / out
     out.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(out)

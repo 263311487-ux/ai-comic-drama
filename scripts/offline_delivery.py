@@ -10,6 +10,6 @@ run(str(ROOT/'scripts/fixture_episode.py'),'--manifest',str(manifest),'--out',st
 shots=out/'制作成果'/'video'; plan=out/'assembly.json'; run(str(ROOT/'scripts/assemble_plan.py'),str(manifest),'--video-dir',str(shots),'--out',str(plan))
 master=out/'master.mp4'; run(str(ROOT/'scripts/encode_ffmpeg.py'),str(plan),'--out',str(master))
 subs=out/'制作成果'/'subs'; subs.mkdir(parents=True,exist_ok=True); cfg=json.loads(manifest.read_text()); srt=subs/f"{cfg.get('title','episode')}_EP{cfg.get('episode','01')}.srt"; run(str(ROOT/'scripts/make_srt.py'),str(manifest),'--out',str(srt))
-(out/'compliance_result.json').write_text(json.dumps({'status':'PASS','source':'offline fixture'})); (out/'qa_result.json').write_text(json.dumps({'status':'PASS','source':'offline fixture'}))
+(out/'compliance_result.json').write_text(json.dumps({'status':'PASS','source':'offline fixture'})); (out/'qa_result.json').write_text(json.dumps({'status':'PASS','review_type':'content','publish_approval':False,'source':'offline fixture'}))
 run(str(ROOT/'scripts/technical_qa.py'),'--video',str(master),'--manifest',str(manifest),'--workdir',str(out),'--out',str(out/'technical_qa.json'))
 print(out)

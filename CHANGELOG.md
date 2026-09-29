@@ -8,6 +8,10 @@ Added provider-neutral SRT generation and encoder-independent assembly plans.
 
 Added optional ffmpeg encoding and disposable local fixture generation for offline media tests.
 
+## 0.8.0
+
+Separated technical readiness from content review and human publish approval. Delivery manifests now refuse to claim READY_FOR_PUBLISH without explicit approval.
+
 ## 0.7.0
 
 Added an offline delivery gate that runs fixture generation, assembly, encoding, subtitles, and technical QA in one reproducible command.
