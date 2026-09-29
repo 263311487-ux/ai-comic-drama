@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+Added a dependency-free MockProvider, resumable shot runner, per-shot and episode budget gates, and provider contract implementation.
+
 ## 0.1.1-preview
 
-Correct capability claims, per-second cost arithmetic, nested preview output paths, and standard-library CI test invocation. Provider execution remains unimplemented.
+Corrected preview scope and offline CI.

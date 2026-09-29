@@ -1,6 +1,6 @@
 # AI Comic Drama — Preview
 
-An early Agent Skill for planning comic-drama production. **This release is a planning prototype, not an end-to-end video generator.**
+An early Agent Skill for planning comic-drama production. **This release is a planning prototype with an offline mock runner, not an end-to-end video generator.**
 
 ## Available now
 
@@ -8,6 +8,14 @@ An early Agent Skill for planning comic-drama production. **This release is a pl
 - Text storyboard HTML (not a visual animatic).
 - Cost estimates using user-supplied per-second rates.
 - Unreviewed QA checklist creation (not automated video review).
+
+## Offline runner
+
+The mock provider exercises resumable state, shot-level attempts, and episode budgets without network access:
+
+```sh
+python3 scripts/run_mock.py examples/episode.json --state work/run_state.json
+```
 
 ## Not yet integrated
 
