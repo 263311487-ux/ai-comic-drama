@@ -2,6 +2,9 @@
 
 Manifest-first automation for repeatable AI comic-drama production: validate a shot list, estimate cost, preview continuity, route to a provider, assemble subtitles, run frame and technical QA, and produce a delivery manifest.
 
+[![CI](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml/badge.svg)](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml)
+[![GitHub stars](https://img.shields.io/github/stars/263311487-ux/ai-comic-drama?style=social)](https://github.com/263311487-ux/ai-comic-drama/stargazers)
+
 This is an Agent Skill, not a hosted video service. Story decisions, provider execution, and release evidence remain separate.
 
 ## Quick start (offline)
@@ -13,6 +16,10 @@ This is an Agent Skill, not a hosted video service. Story decisions, provider ex
     python3 scripts/qa_report.py --manifest examples/episode.json --out work/qa.json
 
 These commands do not call a paid provider.
+
+## Install
+
+Clone the repository into your Agent Skills directory, or use an Agent Skills installer that accepts GitHub repositories. The entrypoint is `SKILL.md`.
 
 ## License
 
