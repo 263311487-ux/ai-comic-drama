@@ -36,6 +36,8 @@ python3 scripts/assemble_plan.py examples/episode.json --out work/assembly.json
 
 The plan is blocked until every expected shot file exists. It does not claim that a video was assembled.
 
+For local encoder testing, generate disposable fixtures with `python3 scripts/fixture_episode.py --manifest examples/episode.json --out work/fixture`; fixture media is intentionally not committed.
+
 ## Not yet integrated
 
 Video provider execution, resumable production, audio/subtitle assembly, and validated end-to-end delivery gates. Legacy gate scripts are experimental and use a different manifest contract. Do not use them to certify release readiness.

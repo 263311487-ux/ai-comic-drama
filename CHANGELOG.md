@@ -4,6 +4,10 @@
 
 Added provider-neutral SRT generation and encoder-independent assembly plans.
 
+## 0.6.0
+
+Added optional ffmpeg encoding and disposable local fixture generation for offline media tests.
+
 ## 0.3.0
 
 Added an explicit Seedance CLI adapter and network-free command planning. Submission remains opt-in.
