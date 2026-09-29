@@ -1,0 +1,4 @@
+interface:
+  display_name: AI Comic Drama
+  short_description: Manifest-first AI comic-drama production and QA
+  default_prompt: Produce an AI comic-drama episode from an approved script and manifest, validating it before any paid generation.

@@ -1,0 +1,9 @@
+__pycache__/
+.pytest_cache/
+work/
+*.mp4
+*.mov
+*.wav
+*.mp3
+.env
+.DS_Store
