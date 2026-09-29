@@ -15,6 +15,7 @@ class Encode(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    target=Path(d)/'delivery'; subprocess.run(['python3',str(ROOT/'scripts/offline_delivery.py'),str(ROOT/'examples/episode.json'),'--out',str(target)],check=True)
    report=json.loads((target/'technical_qa.json').read_text()); self.assertEqual(report['status'],'PASS')
+ @unittest.skipUnless(shutil.which('ffmpeg'),'ffmpeg unavailable')
  def test_delivery_manifest_requires_publish_approval(self):
   with tempfile.TemporaryDirectory() as d:
    target=Path(d)/'delivery'; subprocess.run(['python3',str(ROOT/'scripts/offline_delivery.py'),str(ROOT/'examples/episode.json'),'--out',str(target)],check=True,stdout=subprocess.DEVNULL)
