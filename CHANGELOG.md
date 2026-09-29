@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+Added provider-neutral SRT generation and encoder-independent assembly plans.
+
 ## 0.3.0
 
 Added an explicit Seedance CLI adapter and network-free command planning. Submission remains opt-in.

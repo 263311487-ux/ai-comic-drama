@@ -9,4 +9,10 @@ class Offline(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d: self.assertEqual(run("scripts/previz.py","examples/episode.json","--out",str(Path(d)/"p.html")).returncode,0)
     def test_qa(self):
         with tempfile.TemporaryDirectory() as d: self.assertEqual(run("scripts/qa_report.py","--manifest","examples/episode.json","--out",str(Path(d)/"q.json")).returncode,0)
+    def test_srt(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/"episode.srt"; self.assertEqual(run("scripts/make_srt.py","examples/episode.json","--out",str(p)).returncode,0); self.assertIn('-->',p.read_text())
+    def test_assemble_plan(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/"plan.json"; self.assertEqual(run("scripts/assemble_plan.py","examples/episode.json","--out",str(p)).returncode,0); self.assertEqual(__import__('json').loads(p.read_text())['status'],'blocked')
 if __name__=="__main__": unittest.main()

@@ -25,6 +25,17 @@ The adapter can inspect capabilities and construct a command without submitting.
 python3 scripts/seedance_plan.py examples/episode.json --shot S01
 ```
 
+## Subtitles and assembly plan
+
+Generate an SRT and an encoder-independent clip plan without media encoding:
+
+```sh
+python3 scripts/make_srt.py examples/episode.json --out work/episode.srt
+python3 scripts/assemble_plan.py examples/episode.json --out work/assembly.json
+```
+
+The plan is blocked until every expected shot file exists. It does not claim that a video was assembled.
+
 ## Not yet integrated
 
 Video provider execution, resumable production, audio/subtitle assembly, and validated end-to-end delivery gates. Legacy gate scripts are experimental and use a different manifest contract. Do not use them to certify release readiness.
