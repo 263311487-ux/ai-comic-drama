@@ -8,6 +8,10 @@ Added provider-neutral SRT generation and encoder-independent assembly plans.
 
 Added optional ffmpeg encoding and disposable local fixture generation for offline media tests.
 
+## 1.0.0
+
+Added a provider-neutral content review record and CLI, with explicit PASS/PENDING/FAIL states before publish approval.
+
 ## 0.9.0
 
 Added required release metadata, separate publish approval records, and approval invalidation when the content review report changes.

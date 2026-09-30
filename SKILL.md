@@ -2,7 +2,7 @@
 name: ai-comic-drama
 description: Prepare shot manifests, text storyboard previews, cost estimates and review checklists for AI comic-drama production. Use for preproduction planning; this preview does not generate or assemble video.
 metadata:
-  version: 0.8.0
+  version: 1.0.0
 ---
 # AI Comic Drama — Planning Preview
 

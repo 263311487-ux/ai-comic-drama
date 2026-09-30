@@ -40,9 +40,25 @@ For local encoder testing, generate disposable fixtures with `python3 scripts/fi
 
 Run the full offline delivery gate with `python3 scripts/offline_delivery.py examples/episode.json --out work/delivery`. It creates disposable shots, an assembly plan, a master MP4, SRT, and technical QA. A PASS is technical evidence only; it is not a story or platform approval.
 
-## Not yet integrated
+## Human content review and publish approval
 
-Video provider execution, resumable production, audio/subtitle assembly, and validated end-to-end delivery gates. Legacy gate scripts are experimental and use a different manifest contract. Do not use them to certify release readiness.
+Record an actual human review in `qa_result.json` (repeat `--shot` for each reviewed shot):
+
+```sh
+python3 scripts/record_content_review.py --out work/delivery/qa_result.json --status PASS --reviewer "Name" --basis "All shots reviewed" --shot S01 --shot S02
+```
+
+Use `PENDING_HUMAN_REVIEW` until review is complete, or `FAIL` when it fails. This records the review; it does not inspect video or grant publish approval. Only after content review PASS and independently verified compliance PASS may an authorized publisher create the separate, hash-bound approval:
+
+```sh
+python3 scripts/approve_publish.py --qa work/delivery/qa_result.json --approved-by "Publisher" --basis "Release approved"
+```
+
+Changing `qa_result.json` after approval invalidates that approval. The delivery manifest also requires technical QA PASS, compliance PASS, release metadata, subtitles, content review PASS, and separate human publish approval.
+
+## Current boundaries
+
+The Seedance adapter requires explicit execution opt-in; this repository does not claim automated story review or platform approval. Legacy narrative and compliance keyword gates are advisory and use a different manifest contract. Do not use them to certify release readiness.
 
 ## Offline quick start
 
