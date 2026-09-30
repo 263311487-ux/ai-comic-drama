@@ -19,5 +19,16 @@ class Encode(unittest.TestCase):
  def test_delivery_manifest_requires_publish_approval(self):
   with tempfile.TemporaryDirectory() as d:
    target=Path(d)/'delivery'; subprocess.run(['python3',str(ROOT/'scripts/offline_delivery.py'),str(ROOT/'examples/episode.json'),'--out',str(target)],check=True,stdout=subprocess.DEVNULL)
+   (target/'compliance_result.json').write_text(json.dumps({'status':'PASS'}))
+   (target/'qa_result.json').write_text(json.dumps({'status':'PASS'}))
    proc=subprocess.run(['python3',str(ROOT/'scripts/delivery_manifest.py'),'--video',str(target/'master.mp4'),'--manifest',str(ROOT/'examples/episode.json'),'--qa',str(target/'technical_qa.json'),'--out',str(target/'delivery.json')],capture_output=True,text=True)
    self.assertNotEqual(proc.returncode,0); self.assertIn('人工发布批准',proc.stderr+proc.stdout)
+ @unittest.skipUnless(shutil.which('ffmpeg'),'ffmpeg unavailable')
+ def test_approval_creates_publish_manifest(self):
+  with tempfile.TemporaryDirectory() as d:
+   target=Path(d)/'delivery'; subprocess.run(['python3',str(ROOT/'scripts/offline_delivery.py'),str(ROOT/'examples/episode.json'),'--out',str(target)],check=True,stdout=subprocess.DEVNULL)
+   qa=target/'qa_result.json'; q=json.loads(qa.read_text()); q['status']='PASS'; qa.write_text(json.dumps(q))
+   compliance=target/'compliance_result.json'; compliance.write_text(json.dumps({'status':'PASS','source':'test-only explicit override'}))
+   subprocess.run(['python3',str(ROOT/'scripts/approve_publish.py'),'--qa',str(target/'qa_result.json'),'--approved-by','test-reviewer','--basis','offline fixture review'],check=True)
+   out=target/'delivery.json'; subprocess.run(['python3',str(ROOT/'scripts/delivery_manifest.py'),'--video',str(target/'master.mp4'),'--manifest',str(ROOT/'examples/episode.json'),'--qa',str(target/'technical_qa.json'),'--out',str(out)],check=True)
+   self.assertEqual(json.loads(out.read_text())['status'],'READY_FOR_PUBLISH')

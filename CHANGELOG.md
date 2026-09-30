@@ -8,6 +8,10 @@ Added provider-neutral SRT generation and encoder-independent assembly plans.
 
 Added optional ffmpeg encoding and disposable local fixture generation for offline media tests.
 
+## 0.9.0
+
+Added required release metadata, separate publish approval records, and approval invalidation when the content review report changes.
+
 ## 0.8.0
 
 Separated technical readiness from content review and human publish approval. Delivery manifests now refuse to claim READY_FOR_PUBLISH without explicit approval.
