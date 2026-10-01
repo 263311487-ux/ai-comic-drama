@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+Added `scripts/init_manifest.py` to scaffold an editable episode contract. No provider API changes.
+
 ## 1.1.1
 
 Improved the quickstart artifact index and added regression coverage for the one-command workflow. No provider API changes.

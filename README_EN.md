@@ -26,6 +26,16 @@ It does not claim automated story judgment, platform compliance approval, or una
 
 ## Offline runner
 
+### Start a new manifest
+
+Create an editable episode contract without copying JSON by hand:
+
+```sh
+python3 scripts/init_manifest.py --out work/my-episode.json --title "My Episode"
+```
+
+Fill the marked shot and release fields, then run `scripts/validate_manifest.py` before quickstart.
+
 ### One-command quickstart
 
 Run the complete provider-neutral first-success workflow:

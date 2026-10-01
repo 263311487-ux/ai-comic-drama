@@ -22,4 +22,9 @@ class Offline(unittest.TestCase):
             data=__import__('json').loads((out/"quickstart.json").read_text())
             self.assertEqual(data["status"],"READY_FOR_PROVIDER_REVIEW")
             self.assertIn("quickstart.json",data["artifacts"])
+    def test_init_manifest_creates_contract(self):
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)/"episode.json"; result=run("scripts/init_manifest.py","--out",str(out),"--title","Test Episode")
+            self.assertEqual(result.returncode,0, result.stderr)
+            self.assertEqual(run("scripts/validate_manifest.py",str(out)).returncode,1)
 if __name__=="__main__": unittest.main()
