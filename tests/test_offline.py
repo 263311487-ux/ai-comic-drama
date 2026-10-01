@@ -15,4 +15,11 @@ class Offline(unittest.TestCase):
     def test_assemble_plan(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/"plan.json"; self.assertEqual(run("scripts/assemble_plan.py","examples/episode.json","--out",str(p)).returncode,0); self.assertEqual(__import__('json').loads(p.read_text())['status'],'blocked')
+    def test_quickstart(self):
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)/"quickstart"; result=run("scripts/quickstart.py","examples/episode.json","--out",str(out))
+            self.assertEqual(result.returncode,0, result.stderr)
+            data=__import__('json').loads((out/"quickstart.json").read_text())
+            self.assertEqual(data["status"],"READY_FOR_PROVIDER_REVIEW")
+            self.assertIn("quickstart.json",data["artifacts"])
 if __name__=="__main__": unittest.main()

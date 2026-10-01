@@ -34,7 +34,9 @@ def main():
         "artifacts": {p.name: str(p) for p in sorted(out.iterdir()) if p.is_file()},
         "next": "Review qa_result.json, then choose an explicitly approved provider adapter.",
     }
-    (out / "quickstart.json").write_text(json.dumps(artifacts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    index = out / "quickstart.json"
+    artifacts["artifacts"][index.name] = str(index)
+    index.write_text(json.dumps(artifacts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(artifacts, ensure_ascii=False, indent=2))
 
 if __name__ == "__main__":

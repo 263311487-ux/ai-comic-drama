@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+Improved the quickstart artifact index and added regression coverage for the one-command workflow. No provider API changes.
+
 ## 1.1.0
 
 Added `scripts/quickstart.py`, a one-command offline first-success workflow with an artifact index. No provider API is called.
