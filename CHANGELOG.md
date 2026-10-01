@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+Improved skill discovery metadata, invocation copy, and README search keywords. No runtime API changes.
+
 ## 1.0.1
 
 Refreshed public README positioning, installation guidance, and CI/release badges. No runtime API changes.

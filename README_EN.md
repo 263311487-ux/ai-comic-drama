@@ -4,6 +4,8 @@
 
 Manifest-first Agent Skill for planning and validating AI comic-drama production. It provides provider-neutral contracts, offline resumable runs, cost gates, subtitle and assembly planning, optional encoding, technical QA, and auditable human review gates.
 
+**Keywords:** AI comic drama, AI short drama, storyboard manifest, Seedance workflow, video generation pipeline, Codex Agent Skill, technical QA, human content review.
+
 It is safe to try locally: examples and CI do not call paid providers. Video generation remains an explicit provider opt-in.
 
 ## Install as a Codex skill

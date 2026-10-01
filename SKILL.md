@@ -1,6 +1,6 @@
 ---
 name: ai-comic-drama
-description: Prepare shot manifests, text storyboard previews, cost estimates and review checklists for AI comic-drama production. Use for preproduction planning; this preview does not generate or assemble video.
+description: "Manifest-first Codex Agent Skill for AI comic-drama production: shot planning, provider-neutral generation plans, cost gates, subtitles, assembly, technical QA, and auditable human review. Use when turning a script or shot list into a reproducible comic-drama production workflow; paid provider execution remains explicit opt-in."
 metadata:
   version: 1.0.0
 ---
