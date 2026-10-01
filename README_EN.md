@@ -43,6 +43,7 @@ python3 scripts/init_manifest.py --out work/my-episode.json --title "My Episode"
 ```
 
 Fill the marked shot and release fields, then run `scripts/validate_manifest.py` before quickstart.
+For a production handoff, use `python3 scripts/validate_manifest.py work/my-episode.json --strict` to require release metadata and complete shot fields.
 
 ### One-command quickstart
 

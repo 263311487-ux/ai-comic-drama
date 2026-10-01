@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0
+
+Added strict manifest validation for production handoff fields and release metadata. The default validator remains backward compatible.
+
 ## 1.3.1
 
 Made the environment doctor return a nonzero exit code when offline readiness or workdir write access is unavailable. No provider API changes.
