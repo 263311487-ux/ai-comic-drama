@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0
+
+Added structured issue templates for bugs, feature requests, and provider adapters, plus a pull-request checklist. No runtime API changes.
+
 ## 1.5.0
 
 Extended CI to run strict manifest validation, offline doctor checks, and the one-command quickstart. No provider API changes.

@@ -1,0 +1,27 @@
+name: Provider adapter request
+description: Request or propose support for a video/image/audio provider.
+title: "[Provider]: "
+labels: [provider, enhancement]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider and product
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Capabilities and response contract
+      description: Describe submit, poll, download, media, and cost behavior without sharing credentials.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety boundary
+      options:
+        - label: I understand paid execution must remain explicit opt-in.
+          required: true
+        - label: I have removed credentials and private account data.
+          required: true
