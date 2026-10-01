@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+
+Aligned the skill entrypoint version and release-boundary wording with the current public line. No runtime API changes.
+
 ## 1.0.5
 
 Aligned citation metadata with the current public release line. No runtime API changes.
