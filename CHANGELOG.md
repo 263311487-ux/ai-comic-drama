@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+
+Extended CI to run strict manifest validation, offline doctor checks, and the one-command quickstart. No provider API changes.
+
 ## 1.4.0
 
 Added strict manifest validation for production handoff fields and release metadata. The default validator remains backward compatible.
