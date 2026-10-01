@@ -26,6 +26,14 @@ It does not claim automated story judgment, platform compliance approval, or una
 
 ## Offline runner
 
+### Diagnose the local environment
+
+```sh
+python3 scripts/doctor.py
+```
+
+The doctor reports Python, optional `ffmpeg`/`ffprobe`, the optional Seedance CLI, and offline manifest readiness. It never submits a paid request.
+
 ### Start a new manifest
 
 Create an editable episode contract without copying JSON by hand:

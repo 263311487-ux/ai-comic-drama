@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+Added `scripts/doctor.py` for offline environment diagnostics and optional provider/encoder availability checks. No paid calls are made.
+
 ## 1.2.0
 
 Added `scripts/init_manifest.py` to scaffold an editable episode contract. No provider API changes.

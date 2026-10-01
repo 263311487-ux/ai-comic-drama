@@ -27,4 +27,7 @@ class Offline(unittest.TestCase):
             out=Path(d)/"episode.json"; result=run("scripts/init_manifest.py","--out",str(out),"--title","Test Episode")
             self.assertEqual(result.returncode,0, result.stderr)
             self.assertEqual(run("scripts/validate_manifest.py",str(out)).returncode,1)
+    def test_doctor_is_offline_and_ready(self):
+        result=run("scripts/doctor.py"); self.assertEqual(result.returncode,0, result.stderr)
+        data=__import__('json').loads(result.stdout); self.assertEqual(data['status'],'READY_OFFLINE'); self.assertFalse(data['paid_provider_calls'])
 if __name__=="__main__": unittest.main()
