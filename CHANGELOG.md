@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1
+
+Made the environment doctor return a nonzero exit code when offline readiness or workdir write access is unavailable. No provider API changes.
+
 ## 1.3.0
 
 Added `scripts/doctor.py` for offline environment diagnostics and optional provider/encoder availability checks. No paid calls are made.
