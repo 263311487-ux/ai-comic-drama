@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+Added `scripts/quickstart.py`, a one-command offline first-success workflow with an artifact index. No provider API is called.
+
 ## 1.0.6
 
 Aligned the skill entrypoint version and release-boundary wording with the current public line. No runtime API changes.

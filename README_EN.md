@@ -26,6 +26,16 @@ It does not claim automated story judgment, platform compliance approval, or una
 
 ## Offline runner
 
+### One-command quickstart
+
+Run the complete provider-neutral first-success workflow:
+
+```sh
+python3 scripts/quickstart.py
+```
+
+It validates the manifest, generates a text previz, creates a pending human-review report, writes subtitles and an assembly plan, runs the offline resumable mock, and writes `work/quickstart/quickstart.json`. No paid API is called.
+
 The mock provider exercises resumable state, shot-level attempts, and episode budgets without network access:
 
 ```sh

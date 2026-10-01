@@ -1,4 +1,4 @@
 interface:
   display_name: "AI Comic Drama Planning"
-  short_description: "Plan, validate and review AI comic-drama episodes"
-  default_prompt: "Use $ai-comic-drama to turn this script or shot list into a manifest-first production plan with cost, QA, and human review gates."
+  short_description: "Run a safe AI comic-drama production workflow"
+  default_prompt: "Use $ai-comic-drama to run the offline quickstart or turn this script or shot list into a manifest-first production plan with cost, QA, and human review gates."
