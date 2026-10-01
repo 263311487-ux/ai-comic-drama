@@ -124,4 +124,6 @@ Copy the complete repository into your agent's skill directory. Entry point: `SK
 
 Apache-2.0; see LICENSE. No third-party director skill or proprietary media is bundled.
 
+Community policy: see [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+
 Delivery status is intentionally staged: technical PASS does not equal content approval or publish approval.

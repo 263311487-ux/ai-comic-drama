@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.0
+
+Added security reporting and contributor conduct policies for safe community reuse. No runtime API changes.
+
 ## 1.6.0
 
 Added structured issue templates for bugs, feature requests, and provider adapters, plus a pull-request checklist. No runtime API changes.
