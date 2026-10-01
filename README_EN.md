@@ -26,6 +26,14 @@ It does not claim automated story judgment, platform compliance approval, or una
 
 ## Offline runner
 
+### Review a manifest at a glance
+
+```sh
+python3 scripts/manifest_report.py work/my-episode.json
+```
+
+Use `--json` for CI or issue reports. It summarizes duration, dialogue coverage, assets, provider, and budget without contacting a provider.
+
 ### Diagnose the local environment
 
 ```sh

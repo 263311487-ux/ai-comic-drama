@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.0
+
+Added `scripts/manifest_report.py` for production-ready episode summaries. No provider API changes.
+
 ## 1.7.0
 
 Added security reporting and contributor conduct policies for safe community reuse. No runtime API changes.
