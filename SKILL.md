@@ -2,9 +2,9 @@
 name: ai-comic-drama
 description: "Manifest-first Codex Agent Skill for AI comic-drama production: shot planning, provider-neutral generation plans, cost gates, subtitles, assembly, technical QA, and auditable human review. Use when turning a script or shot list into a reproducible comic-drama production workflow; paid provider execution remains explicit opt-in."
 metadata:
-  version: 1.0.0
+  version: 1.0.4
 ---
-# AI Comic Drama — Planning Preview
+# AI Comic Drama
 
 Read README.md for executable commands and current limitations. Develop an approved script into shots with purpose, visible action, camera, dialogue and end state. Preserve the user's genre, duration, language and audio preferences.
 
