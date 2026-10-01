@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+Added standard citation metadata and an example workflow guide for reuse and indexing. No runtime API changes.
+
 ## 1.0.2
 
 Improved skill discovery metadata, invocation copy, and README search keywords. No runtime API changes.

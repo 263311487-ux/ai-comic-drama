@@ -12,6 +12,8 @@ It is designed to be safe to try locally: examples and CI do not call paid provi
 
 Copy this repository into your agent skills directory, or install it from GitHub with your skill installer. The entry point is [`SKILL.md`](SKILL.md). Python 3.11+ and the standard library are enough for the offline workflow.
 
+The shortest offline example is documented in [`examples/README.md`](examples/README.md). Citation metadata is available in [`CITATION.cff`](CITATION.cff).
+
 ## What it does
 
 - Offline shot-manifest checks.

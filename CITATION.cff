@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "AI Comic Drama"
+message: "If this skill helps your AI comic-drama workflow, please cite the repository and release you used."
+type: software
+authors:
+  - family-names: Gongsheng
+    given-names: Yuanjing
+    alias: 263311487-ux
+repository-code: "https://github.com/263311487-ux/ai-comic-drama"
+url: "https://github.com/263311487-ux/ai-comic-drama"
+license: Apache-2.0
+version: 1.0.3
+date-released: 2026-10-01
+abstract: "A manifest-first Codex Agent Skill for planning, validating, assembling, and human-reviewing AI comic-drama episodes."
+keywords:
+  - AI comic drama
+  - agent skill
+  - storyboard manifest
+  - Seedance
+  - video pipeline
