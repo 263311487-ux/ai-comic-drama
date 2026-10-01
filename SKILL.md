@@ -2,7 +2,7 @@
 name: ai-comic-drama
 description: "Manifest-first Codex Agent Skill for AI comic-drama production: shot planning, provider-neutral generation plans, cost gates, subtitles, assembly, technical QA, and auditable human review. Use when turning a script or shot list into a reproducible comic-drama production workflow; paid provider execution remains explicit opt-in."
 metadata:
-  version: 1.8.0
+  version: 1.9.0
 ---
 # AI Comic Drama
 
@@ -15,6 +15,7 @@ For a new episode, start with `python3 scripts/init_manifest.py --out work/episo
 If installation is uncertain, run `python3 scripts/doctor.py`; it reports offline readiness and optional encoder/provider CLI availability without making paid calls.
 Use `scripts/validate_manifest.py --strict` before a production handoff to require release metadata and complete shot fields.
 Use `scripts/manifest_report.py <manifest>` to summarize duration, dialogue, assets, provider, and budget before generation.
+Use `scripts/continuity_check.py <manifest> --json` to catch broken shot links and unknown asset references before generation.
 
 Keyword checks cannot certify compliance. Unreviewed reports cannot certify content. Legacy narrative, technical and delivery scripts remain experimental and are not integrated with this example schema. Never describe this skill as an end-to-end generator or declare content publishable based on a successful command.
 

@@ -34,6 +34,14 @@ python3 scripts/manifest_report.py work/my-episode.json
 
 Use `--json` for CI or issue reports. It summarizes duration, dialogue coverage, assets, provider, and budget without contacting a provider.
 
+### Check shot continuity
+
+```sh
+python3 scripts/continuity_check.py work/my-episode.json --json
+```
+
+This catches broken `continuity_from` links and unknown character or scene IDs before generation.
+
 ### Diagnose the local environment
 
 ```sh

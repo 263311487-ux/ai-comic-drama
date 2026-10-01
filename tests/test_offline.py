@@ -8,6 +8,9 @@ class Offline(unittest.TestCase):
     def test_manifest_report(self):
         result=run("scripts/manifest_report.py","examples/episode.json","--json"); self.assertEqual(result.returncode,0)
         data=__import__('json').loads(result.stdout); self.assertEqual(data['shots'],2); self.assertEqual(data['duration_seconds'],11.0)
+    def test_continuity_check(self):
+        result=run("scripts/continuity_check.py","examples/episode.json","--json"); self.assertEqual(result.returncode,0)
+        self.assertEqual(__import__('json').loads(result.stdout)['status'],'PASS')
     def test_compliance(self): self.assertEqual(run("scripts/check_compliance.py","examples/episode.json").returncode,0)
     def test_previz(self):
         with tempfile.TemporaryDirectory() as d: self.assertEqual(run("scripts/previz.py","examples/episode.json","--out",str(Path(d)/"p.html")).returncode,0)

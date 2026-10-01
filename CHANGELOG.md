@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.0
+
+Added continuity and asset-reference validation for shot manifests. No provider API changes.
+
 ## 1.8.0
 
 Added `scripts/manifest_report.py` for production-ready episode summaries. No provider API changes.
