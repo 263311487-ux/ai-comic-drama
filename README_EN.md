@@ -1,13 +1,24 @@
-# AI Comic Drama — Preview
+# AI Comic Drama
 
-An early Agent Skill for planning comic-drama production. **This release is a planning prototype with an offline mock runner, not an end-to-end video generator.**
+[![CI](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml/badge.svg)](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/263311487-ux/ai-comic-drama)](https://github.com/263311487-ux/ai-comic-drama/releases)
 
-## Available now
+Manifest-first Agent Skill for planning and validating AI comic-drama production. It provides provider-neutral contracts, offline resumable runs, cost gates, subtitle and assembly planning, optional encoding, technical QA, and auditable human review gates.
+
+It is safe to try locally: examples and CI do not call paid providers. Video generation remains an explicit provider opt-in.
+
+## Install as a Codex skill
+
+Copy this repository into your agent skills directory, or install it from GitHub with your skill installer. The entry point is [`SKILL.md`](SKILL.md). Python 3.11+ and the standard library are enough for the offline workflow.
+
+## What it does
 
 - Offline shot-manifest checks.
 - Text storyboard HTML (not a visual animatic).
 - Cost estimates using user-supplied per-second rates.
-- Unreviewed QA checklist creation (not automated video review).
+- Content-review records with explicit `PASS`, `PENDING_HUMAN_REVIEW`, and `FAIL` states.
+- Separate publish approval records bound to the reviewed report hash.
+
+It does not claim automated story judgment, platform compliance approval, or unattended paid generation.
 
 ## Offline runner
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+Refreshed public README positioning, installation guidance, and CI/release badges. No runtime API changes.
+
 ## 0.5.0
 
 Added provider-neutral SRT generation and encoder-independent assembly plans.
