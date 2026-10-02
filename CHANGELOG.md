@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.1
+
+Added continuity validation to CI so broken shot links and asset references fail before merge. No provider API changes.
+
 ## 1.9.0
 
 Added continuity and asset-reference validation for shot manifests. No provider API changes.

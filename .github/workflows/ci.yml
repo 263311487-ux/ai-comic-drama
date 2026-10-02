@@ -9,6 +9,7 @@ jobs:
         with: {python-version: '3.11'}
       - run: python scripts/validate_manifest.py examples/episode.json
       - run: python scripts/validate_manifest.py examples/episode.json --strict
+      - run: python scripts/continuity_check.py examples/episode.json --json
       - run: python scripts/doctor.py --workdir /tmp/ai-comic-drama-work
       - run: python scripts/check_compliance.py examples/episode.json
       - run: python scripts/previz.py examples/episode.json --out /tmp/previz.html
