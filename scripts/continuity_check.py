@@ -11,7 +11,7 @@ def main():
         sid=s.get('id',f'index-{i}'); parent=s.get('continuity_from')
         if parent and parent not in known: issues.append({'shot':sid,'type':'missing_continuity_source','value':parent})
         if parent and parent==sid: issues.append({'shot':sid,'type':'self_continuity_reference','value':parent})
-        if parent and ids.index(parent)>=i: issues.append({'shot':sid,'type':'forward_continuity_reference','value':parent})
+        if parent and parent in known and ids.index(parent)>=i: issues.append({'shot':sid,'type':'forward_continuity_reference','value':parent})
         if s.get('scene') and scenes and s['scene'] not in scenes: issues.append({'shot':sid,'type':'unknown_scene','value':s['scene']})
         for role in s.get('roles',[]):
             if chars and role not in chars: issues.append({'shot':sid,'type':'unknown_character','value':role})

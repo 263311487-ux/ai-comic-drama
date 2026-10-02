@@ -16,6 +16,7 @@ If installation is uncertain, run `python3 scripts/doctor.py`; it reports offlin
 Use `scripts/validate_manifest.py --strict` before a production handoff to require release metadata and complete shot fields.
 Use `scripts/manifest_report.py <manifest>` to summarize duration, dialogue, assets, provider, and budget before generation.
 Use `scripts/continuity_check.py <manifest> --json` to catch broken shot links and unknown asset references before generation.
+Read `references/manifest-schema.md` when converting an existing script or legacy manifest into the public contract.
 
 Keyword checks cannot certify compliance. Unreviewed reports cannot certify content. Legacy narrative, technical and delivery scripts remain experimental and are not integrated with this example schema. Never describe this skill as an end-to-end generator or declare content publishable based on a successful command.
 

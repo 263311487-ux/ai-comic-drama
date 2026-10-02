@@ -11,6 +11,12 @@ class Offline(unittest.TestCase):
     def test_continuity_check(self):
         result=run("scripts/continuity_check.py","examples/episode.json","--json"); self.assertEqual(result.returncode,0)
         self.assertEqual(__import__('json').loads(result.stdout)['status'],'PASS')
+    def test_continuity_check_reports_missing_source(self):
+        import json
+        with tempfile.TemporaryDirectory() as d:
+            manifest=Path(d)/"broken.json"; data=json.loads(Path(ROOT/"examples/episode.json").read_text()); data['shots'][1]['continuity_from']='S99'; manifest.write_text(json.dumps(data))
+            result=run("scripts/continuity_check.py",str(manifest),"--json")
+            self.assertEqual(result.returncode,1); report=json.loads(result.stdout); self.assertEqual(report['status'],'FAIL'); self.assertEqual(report['issues'][0]['type'],'missing_continuity_source')
     def test_compliance(self): self.assertEqual(run("scripts/check_compliance.py","examples/episode.json").returncode,0)
     def test_previz(self):
         with tempfile.TemporaryDirectory() as d: self.assertEqual(run("scripts/previz.py","examples/episode.json","--out",str(Path(d)/"p.html")).returncode,0)

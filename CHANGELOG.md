@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.2
+
+Fixed missing continuity-source handling and aligned the manifest schema reference with the public validator contract. No provider API changes.
+
 ## 1.9.1
 
 Added continuity validation to CI so broken shot links and asset references fail before merge. No provider API changes.
