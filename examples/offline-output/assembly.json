@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1",
+  "status": "blocked",
+  "video_dir": "work/shots",
+  "clips": [
+    {
+      "shot_id": "S01",
+      "path": "work/shots/S01.mp4",
+      "duration": 5,
+      "status": "missing"
+    },
+    {
+      "shot_id": "S02",
+      "path": "work/shots/S02.mp4",
+      "duration": 6,
+      "status": "missing"
+    }
+  ],
+  "missing": [
+    "S01",
+    "S02"
+  ],
+  "note": "Plan only; use an encoder adapter to render."
+}

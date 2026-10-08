@@ -14,6 +14,27 @@ Copy this repository into your agent skills directory, or install it from GitHub
 
 The shortest offline example is documented in [`examples/README.md`](examples/README.md). Citation metadata is available in [`CITATION.cff`](CITATION.cff).
 
+## First success in one minute
+
+From the repository root, use Python 3.11 or newer:
+
+```sh
+python3 --version
+python3 scripts/quickstart.py
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+Open `work/quickstart/previz.html`, then inspect `quickstart.json` for the artifact index. A successful planning run reports `READY_FOR_PROVIDER_REVIEW`; the mock succeeds without creating any video. `assembly.json` is correctly `blocked` until real clips exist, and `qa_result.json` stays `PENDING_HUMAN_REVIEW`. These are expected safeguards, not a failed quickstart.
+
+[See the committed synthetic example outputs](examples/offline-output/README.md): a two-shot, 11-second text storyboard, SRT, blocked assembly plan, and pending review report, captured from a real offline run. No generated character art or paid-provider result is represented.
+
+| Local task | Requirements | Tested scope |
+|---|---|---|
+| Manifest, quickstart, mock and planning | Python 3.11+ standard library | Ubuntu CI; macOS local |
+| Optional disposable MP4 and technical QA | `ffmpeg` and `ffprobe` on PATH, with libx264 and AAC encoders | macOS local; not required for first success |
+| Windows use | Python 3.11+ (`py -3.11` may replace `python3`); optional encoder binaries on PATH | Not a current CI target; validate locally |
+| Actual video generation | Separately installed provider, approved budget and explicit execution | Not exercised by offline examples |
+
 ## What it does
 
 - Offline shot-manifest checks.

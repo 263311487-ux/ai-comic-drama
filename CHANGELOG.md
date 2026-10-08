@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+Completed the existing Apache-2.0 license text, aligned citation/skill metadata to 1.9.2, added a metadata consistency check, and documented captured synthetic offline outputs and platform prerequisites. No provider API or generation changes.
+
 ## 1.9.2
 
 Fixed missing continuity-source handling and aligned the manifest schema reference with the public validator contract. No provider API changes.
