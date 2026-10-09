@@ -2,7 +2,7 @@
 
 ## 1.9.3
 
-Prepared 2026-10-09 as a source release candidate; tag/publication managed separately. Completed canonical Apache-2.0 text, aligned metadata, documented captured synthetic offline outputs and prerequisites, and explicitly bounded report-hash approval versus media integrity and identity. Added source/output SHA-256 provenance. No provider API or generation changes.
+Released 2026-10-09. Completed canonical Apache-2.0 text, aligned metadata, documented captured synthetic offline outputs and prerequisites, and explicitly bounded report-hash approval versus media integrity and identity. Added source/output SHA-256 provenance. No provider API or generation changes.
 
 ## 1.9.2
 
