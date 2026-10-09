@@ -1,5 +1,7 @@
 # AI Comic Drama
 
+Source candidate **1.9.3**, prepared 2026-10-09; not a claim that a release tag or registry package has been published.
+
 [![CI](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml/badge.svg)](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/263311487-ux/ai-comic-drama)](https://github.com/263311487-ux/ai-comic-drama/releases)
 
 Manifest-first Agent Skill for planning and validating AI comic-drama production. It provides provider-neutral contracts, offline resumable runs, cost gates, subtitle and assembly planning, optional encoding, technical QA, and auditable human review gates.
@@ -12,7 +14,7 @@ It is safe to try locally: examples and CI do not call paid providers. Video gen
 
 Copy this repository into your agent skills directory, or install it from GitHub with your skill installer. The entry point is [`SKILL.md`](SKILL.md). Python 3.11+ and the standard library are enough for the offline workflow.
 
-The shortest offline example is documented in [`examples/README.md`](examples/README.md). Citation metadata is available in [`CITATION.cff`](CITATION.cff).
+The shortest offline example is documented in [`examples/offline-output/README.md`](examples/offline-output/README.md). Citation metadata is available in [`CITATION.cff`](CITATION.cff).
 
 ## First success in one minute
 
@@ -122,6 +124,8 @@ For local encoder testing, generate disposable fixtures with `python3 scripts/fi
 Run the full offline delivery gate with `python3 scripts/offline_delivery.py examples/episode.json --out work/delivery`. It creates disposable shots, an assembly plan, a master MP4, SRT, and technical QA. A PASS is technical evidence only; it is not a story or platform approval.
 
 ## Human content review and publish approval
+
+Approval records bind only the bytes of `qa_result.json`. They do not hash or lock video, audio, subtitles or covers; replacing those files does not invalidate this approval. Reviewer/publisher names are self-reported strings, not authenticated identities or signatures. Before real distribution, separately verify media hashes, access control, reviewer identity and platform compliance. These controls are outside this offline example.
 
 Record an actual human review in `qa_result.json` (repeat `--shot` for each reviewed shot):
 

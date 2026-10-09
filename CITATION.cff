@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "AI Comic Drama"
-message: "If this skill helps your AI comic-drama workflow, please cite the repository and release you used."
+message: "Source candidate 1.9.3 prepared 2026-10-09; cite the actual commit used. Publication is managed separately."
 type: software
 authors:
   - family-names: Gongsheng
@@ -9,8 +9,8 @@ authors:
 repository-code: "https://github.com/263311487-ux/ai-comic-drama"
 url: "https://github.com/263311487-ux/ai-comic-drama"
 license: Apache-2.0
-version: 1.9.2
-date-released: 2026-10-02
+version: 1.9.3
+date-released: 2026-10-09
 abstract: "A manifest-first Codex Agent Skill for planning, validating, assembling, and human-reviewing AI comic-drama episodes."
 keywords:
   - AI comic drama

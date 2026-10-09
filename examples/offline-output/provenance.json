@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "captured_on": "2026-10-08",
+  "provenance_recorded_on": "2026-10-09",
+  "command": "python3 scripts/quickstart.py",
+  "source_base_commit": "b6c9e2a5b64d36497cc32a809b1d333e395055e0",
+  "python": "3.11.15",
+  "synthetic": true,
+  "paid_provider_calls": false,
+  "limits": "Hashes establish current file integrity; timestamp fields prevent byte-identical reruns. No approval, media integrity or identity claim.",
+  "sha256": {
+    "examples/episode.json": "8100dbe5e65a35519bd4d925e8df1142641da1c8258118b27cecc8195a1a21fe",
+    "scripts/quickstart.py": "f469434a322e8eec746b9fe7147baa0486ecde1594cfe4ac1ae14ba3be60c79b",
+    "scripts/previz.py": "41b0144d9516db57ddf9ffe1d10e7b1af69d1afa46b9974e823deb19058d53bf",
+    "scripts/make_srt.py": "5f3f94bb92aa3eeb1afd06a745b5f1c2c623f5b4b99f06216e151983e0a5a2a5",
+    "scripts/assemble_plan.py": "84ff11f03c86b501456cc996caeb90de7849c61acbd7ede2fa1595acde489448",
+    "scripts/qa_report.py": "b067ac8b774629ca2b0a6e2931bc994d36164c16b0ffbf4848e225f5d2051b5b",
+    "examples/offline-output/previz.html": "fda29f569b7f314896371407bb3438ddbc037c20be3d8d182a8783d886e5d617",
+    "examples/offline-output/episode.srt": "f0e2e187a0b459796c115e13f692195bed466aa63e2ee7887df56cbac1929429",
+    "examples/offline-output/assembly.json": "a6ed7658a79d883ee5f09fa80ff769c630532c570a4816d89181a989e2bb1d09",
+    "examples/offline-output/qa_result.json": "cfe68a02d02d92f85e04c06fd7c0fb52c4f287782b12cdf4d12052844bf2b31d"
+  }
+}

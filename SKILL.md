@@ -2,7 +2,7 @@
 name: ai-comic-drama
 description: "Manifest-first Codex Agent Skill for AI comic-drama production: shot planning, provider-neutral generation plans, cost gates, subtitles, assembly, technical QA, and auditable human review. Use when turning a script or shot list into a reproducible comic-drama production workflow; paid provider execution remains explicit opt-in."
 metadata:
-  version: 1.9.2
+  version: 1.9.3
 ---
 # AI Comic Drama
 
@@ -21,3 +21,5 @@ Read `references/manifest-schema.md` when converting an existing script or legac
 Keyword checks cannot certify compliance. Unreviewed reports cannot certify content. Legacy narrative, technical and delivery scripts remain experimental and are not integrated with this example schema. Never describe this skill as an end-to-end generator or declare content publishable based on a successful command.
 
 The offline MockProvider and resumable runner are implemented in `ai_comic_drama/`. Real provider adapters remain opt-in and must follow references/providers.md.
+
+Approval integrity is limited to the content report bytes. It does not bind media hashes or authenticate self-reported reviewer/publisher names. Real publication requires separate identity and media-integrity controls.
