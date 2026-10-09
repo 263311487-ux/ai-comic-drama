@@ -1,6 +1,6 @@
 # AI Comic Drama
 
-Source candidate **1.9.3**, prepared 2026-10-09; not a claim that a release tag or registry package has been published.
+Source release **1.9.3**, published 2026-10-09. This repository does not publish a registry package.
 
 [![CI](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml/badge.svg)](https://github.com/263311487-ux/ai-comic-drama/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/263311487-ux/ai-comic-drama)](https://github.com/263311487-ux/ai-comic-drama/releases)
 
