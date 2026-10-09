@@ -13,9 +13,9 @@ Run scripts/validate_manifest.py on the example contract. Use scripts/run_mock.p
 For a first successful offline run, use `python3 scripts/quickstart.py`. It writes a reproducible artifact index under `work/quickstart/` without contacting a paid provider.
 For a new episode, start with `python3 scripts/init_manifest.py --out work/episode.json --title "..."`, fill the required fields, then validate.
 If installation is uncertain, run `python3 scripts/doctor.py`; it reports offline readiness and optional encoder/provider CLI availability without making paid calls.
-Use `scripts/validate_manifest.py --strict` before a production handoff to require release metadata and complete shot fields.
-Use `scripts/manifest_report.py <manifest>` to summarize duration, dialogue, assets, provider, and budget before generation.
-Use `scripts/continuity_check.py <manifest> --json` to catch broken shot links and unknown asset references before generation.
+Use `python3 scripts/validate_manifest.py <manifest> --strict` before a production handoff to require release metadata and complete shot fields.
+Use `python3 scripts/manifest_report.py <manifest>` to summarize duration, dialogue, assets, provider, and budget before generation.
+Use `python3 scripts/continuity_check.py <manifest> --json` to catch broken shot links and unknown asset references before generation.
 Read `references/manifest-schema.md` when converting an existing script or legacy manifest into the public contract.
 
 Keyword checks cannot certify compliance. Unreviewed reports cannot certify content. Legacy narrative, technical and delivery scripts remain experimental and are not integrated with this example schema. Never describe this skill as an end-to-end generator or declare content publishable based on a successful command.
